@@ -1,9 +1,9 @@
-const fs = require('fs/promises');
+const http = require('http');
 
-const test = 12345;
+function requestListener(request, response) {
+  response.end('hello there');
+}
 
-// именной экспорт
-module.exports.test = test;
+const server = http.createServer(requestListener);
 
-// экспорт по умолчанию
-// module.exports = test;
+server.listen(5000);
